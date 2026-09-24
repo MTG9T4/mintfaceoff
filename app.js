@@ -105,6 +105,12 @@ $('copy-link').addEventListener('click', async () => {
   try { await navigator.clipboard.writeText(location.href); status('Faceoff link copied.', 'success'); }
   catch { status('Could not copy automatically. Copy the address from your browser.', 'error'); }
 });
+$('challenge-x').addEventListener('click', () => {
+  if (!current) return;
+  const symbols = current.pairs.map(pair => safeText(pair.baseToken?.symbol, 'TOKEN'));
+  const message = `${symbols[0]} vs ${symbols[1]} — which community brings more volume today? Live faceoff: ${location.href}`;
+  window.open(`https://x.com/intent/post?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+});
 
 function shareCard() {
   if (!current) return;

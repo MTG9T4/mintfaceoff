@@ -6,7 +6,7 @@ A tiny, shareable Solana token comparison app. Enter two token mint addresses to
 
 From this directory, run `python3 -m http.server 4180`, then open `http://localhost:4180/`.
 
-This is a static site: `index.html`, `styles.css`, `app.js`, and `favicon.svg`. It uses the public [DEX Screener token endpoint](https://docs.dexscreener.com/api/reference). The browser fetches market data directly; there is no backend, tracking, wallet integration, or token contract.
+This is a static site: `index.html`, `styles.css`, `app.js`, `favicon.svg`, and `og.png`. It uses the public [DEX Screener token endpoint](https://docs.dexscreener.com/api/reference). The browser fetches market data directly; there is no backend, tracking, wallet integration, or token contract.
 
 ## How the faceoff works
 
