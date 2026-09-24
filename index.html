@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#090c15" />
+    <meta name="description" content="Put two Solana tokens head to head. Compare live activity, create a shareable faceoff, and let the numbers speak." />
+    <meta property="og:title" content="MintFaceoff — Two tokens. One live faceoff." />
+    <meta property="og:description" content="Compare live Solana token activity and share the result." />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>MintFaceoff — Live Solana token faceoffs</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="MintFaceoff home"><span class="brand-mark">M<span>F</span></span><span>Mint<span class="brand-accent">Faceoff</span></span></a>
+        <div class="topbar-right"><span class="live-dot" aria-hidden="true"></span><span>LIVE DATA</span><a href="#how-it-works">HOW IT WORKS ↗</a></div>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="hero-title">
+          <p class="eyebrow"><span class="eyebrow-line"></span> THE TOKEN ARENA <span class="eyebrow-line"></span></p>
+          <h1 id="hero-title">TWO TOKENS.<br /><em>ONE FACE OFF.</em></h1>
+          <p class="hero-copy">Put any two Solana tokens side by side. Watch real trading activity decide the lead. Make a card worth sharing.</p>
+          <div class="hero-chips"><span>NO WALLET</span><span>NO SIGN UP</span><span>LIVE MARKET DATA</span></div>
+        </section>
+
+        <section class="entry-panel" aria-labelledby="entry-title">
+          <div class="section-heading"><div><p class="section-label">01 / ENTER THE ARENA</p><h2 id="entry-title">Choose your contenders</h2></div><button id="example-button" class="text-button" type="button">TRY A LIVE EXAMPLE ↗</button></div>
+          <form id="duel-form" novalidate>
+            <div class="input-grid">
+              <label class="mint-field mint-field-left"><span class="field-label"><span class="side-indicator"></span> CONTENDER A</span><input id="mint-a" name="a" autocomplete="off" spellcheck="false" placeholder="Paste Solana token address" aria-describedby="input-help" required /></label>
+              <div class="versus" aria-hidden="true">VS</div>
+              <label class="mint-field mint-field-right"><span class="field-label"><span class="side-indicator"></span> CONTENDER B</span><input id="mint-b" name="b" autocomplete="off" spellcheck="false" placeholder="Paste Solana token address" aria-describedby="input-help" required /></label>
+            </div>
+            <div class="form-bottom"><p id="input-help">Use token mint addresses, not names or pair addresses.</p><button id="compare-button" class="primary-button" type="submit">START FACE OFF <span aria-hidden="true">↗</span></button></div>
+          </form>
+          <p id="status" class="status" role="status" aria-live="polite">Waiting for two contenders.</p>
+        </section>
+
+        <section id="arena" class="arena" hidden aria-labelledby="arena-title">
+          <div class="section-heading arena-heading"><div><p class="section-label">02 / THE LIVE RESULT</p><h2 id="arena-title">The numbers speak</h2></div><p id="updated-at" class="updated-at"></p></div>
+          <div class="battle-board">
+            <article class="token-card token-left" aria-label="Contender A data"><div class="token-top"><span class="token-side">CONTENDER A</span><span class="token-chain">SOLANA</span></div><div class="token-identity"><span id="symbol-a" class="token-symbol">—</span><h3 id="name-a">—</h3><span id="mint-short-a" class="mint-short"></span></div><div class="metric-main"><span>24H TRADING VOLUME</span><strong id="volume-a">—</strong></div><div class="metrics-grid"><div><span>MARKET CAP</span><strong id="marketcap-a">—</strong></div><div><span>24H TRADES</span><strong id="trades-a">—</strong></div><div><span>24H CHANGE</span><strong id="change-a">—</strong></div><div><span>LIQUIDITY</span><strong id="liquidity-a">—</strong></div></div><a id="source-a" class="source-link" href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer">VIEW MARKET SOURCE ↗</a></article>
+            <div class="board-center" aria-hidden="true"><span>VS</span></div>
+            <article class="token-card token-right" aria-label="Contender B data"><div class="token-top"><span class="token-side">CONTENDER B</span><span class="token-chain">SOLANA</span></div><div class="token-identity"><span id="symbol-b" class="token-symbol">—</span><h3 id="name-b">—</h3><span id="mint-short-b" class="mint-short"></span></div><div class="metric-main"><span>24H TRADING VOLUME</span><strong id="volume-b">—</strong></div><div class="metrics-grid"><div><span>MARKET CAP</span><strong id="marketcap-b">—</strong></div><div><span>24H TRADES</span><strong id="trades-b">—</strong></div><div><span>24H CHANGE</span><strong id="change-b">—</strong></div><div><span>LIQUIDITY</span><strong id="liquidity-b">—</strong></div></div><a id="source-b" class="source-link" href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer">VIEW MARKET SOURCE ↗</a></article>
+          </div>
+          <div class="score-panel"><div class="score-top"><span>THE ACTIVITY METER</span><strong id="leader-text">—</strong></div><div id="score-track" class="score-track" aria-label="Share of combined 24 hour volume"><div id="score-left" class="score-left"></div><div id="score-right" class="score-right"></div></div><div class="score-legend"><span id="score-label-a">—</span><span id="score-label-b">—</span></div><p>Lead is based only on 24-hour trading volume. It is not a prediction, endorsement, or measure of token quality.</p></div>
+          <div class="share-actions"><button id="copy-link" class="secondary-button" type="button">COPY FACE OFF LINK</button><button id="save-card" class="secondary-button" type="button">SAVE SHARE CARD</button><button id="swap-button" class="text-button" type="button">SWAP SIDES ↔</button></div>
+        </section>
+
+        <section id="how-it-works" class="how-section"><p class="section-label">THE SIMPLE IDEA</p><h2>Every community wants<br /><em>to see how it stacks up.</em></h2><div class="steps"><div><span>01</span><h3>Pick two tokens</h3><p>Paste their Solana mint addresses. No account or wallet connection.</p></div><div><span>02</span><h3>See the live matchup</h3><p>We show volume, trades, market cap, and liquidity from DEX Screener.</p></div><div><span>03</span><h3>Share the faceoff</h3><p>Copy a link or save a card for your group, timeline, or livestream.</p></div></div></section>
+      </main>
+
+      <footer><span class="footer-brand">MINTFACEOFF <span>◆</span></span><span>Made for the conversation. No trades happen here.</span><a href="https://docs.dexscreener.com/api/reference" target="_blank" rel="noopener noreferrer">DATA: DEX SCREENER ↗</a></footer>
+    </div>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
