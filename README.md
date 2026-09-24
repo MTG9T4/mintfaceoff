@@ -2,6 +2,8 @@
 
 A tiny, shareable Solana token comparison app. Enter two token mint addresses to compare 24-hour volume, trades, market cap, price change, and liquidity. Copy a live link or save a PNG card. No wallet or account is required.
 
+**Live site:** https://mtg9t4.github.io/mintfaceoff/
+
 ## Run locally
 
 From this directory, run `python3 -m http.server 4180`, then open `http://localhost:4180/`.
